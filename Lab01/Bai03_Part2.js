@@ -13,7 +13,6 @@ var person2 = {
 function calcBMI(person) {
     return person.mass / (person.height ** 2);
 }
-
 var bmiMark = calcBMI(person1);
 var bmiJohn = calcBMI(person2);
 
