@@ -5,56 +5,66 @@ const players2 = ['Burki', 'Schulz', 'Hummels', 'Akanji', 'Hakimi', 'Weigl', 'Wi
 'Hazard', 'Brandt', 'Sancho', 'Gotze'];
 
 //----------- Tách thủ môn và các cầu thủ khác ------------
-var gk;
-const fieldPlayers = [];
+var gk = players1[0];
+var fieldPlayers = players1.slice(1);
 
-function tachThuMonVaCacCauThuKhac(arr) {
-for (var i = 0; i < arr.length; i++) {
-  if (i === 0) {
-    gk = arr[i];
-  } else {
-    fieldPlayers.push(arr[i]);
-  }
-}
-console.log(`Thủ môn: ${gk}`); 
-console.log(`Các cầu thủ còn lại: ${fieldPlayers}`); 
-}
-
-console.log('Danh sách người chơi đội 1:');
-tachThuMonVaCacCauThuKhac(players1);
-
-console.log('Danh sách người chơi đội 2:');
-tachThuMonVaCacCauThuKhac(players2);
+console.log("Thủ môn:" + gk); 
+console.log("Các cầu thủ còn lại: " + fieldPlayers); 
+console.log("-----------------------------");
 
 //----------- Gộp tất cả người chơi của cả hai đội ------------
-const allPlayers = [];
-
-function gopTatCaCacCauThuCuaCaHaiDoi(arr1, arr2) {
-    for(var i = 0; i < arr1.length; i++) {
-        allPlayers.push(players1[i]);
-      }
-      for(var i = 0; i < arr2.length; i++) {
-        allPlayers.push(players2[i]);
-      }
-console.log(`Tất cả các cầu thủ: ${allPlayers}`);
-}
-
-gopTatCaCacCauThuCuaCaHaiDoi(players1, players2);
+const allPlayers = players1.concat(players2);
+console.log(`Tất cả cầu thủ: ${allPlayers}`);
+console.log("-----------------------------");
 
 // ------------ Them cau thu moi vao doi ------------
-const players1Final = [];
 const newPlayers = ['Thiago', 'Coutinho', 'Perisic'];
+const players1Final = players1.concat(newPlayers);
+console.log(`Đội hình mới: ${players1Final}`);
+console.log("-----------------------------");
 
-function themCauThuMoiVaoDoi(arr1, arr2) {
-    for(var i = 0; i < arr1.length; i++) {
-        players1Final.push(arr1[i]);
-      }
-      
-    for(var i = 0; i < arr2.length; i++) {
-        players1Final.push(arr2[i]);
-      }
-console.log(`Danh sách cầu thủ cuối cùng: ${players1Final}`);
+//
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: 
+  [
+      ['Neuer','Pavard','Martinez','Alaba','Davies','Kimmich',
+      'Goretzka','Coman','Muller','Gnarby','Lewandowski',],
+      [ 'Burki','Schulz','Hummels','Akanji','Hakimi','Weigl',
+      'Witsel','Hazard','Brandt','Sancho','Gotze', ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski','Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+      team1: 1.33,
+      x: 3.25,
+      team2: 6.5,
+  },
+};
 
-    }    
-themCauThuMoiVaoDoi(players1, newPlayers);
+/*
+var team1, draw, team2;
+team1 = game.odds.team1;
+draw = game.odds.x;
+team2 = game.odds.team2;
+*/
+
+const {team1, x: draw, team2} = game.odds;
+
+//
+
+function printGoals(...players) {
+  console.log("Tên cầu thủ và tổng số bàn thắng được ghi");
+  for (const player of players) {
+    console.log(player +" " + `${players.length} bàn thắng đã được ghi`);
+  }
+}
+
+printGoals('Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels');
+console.log("-----------------------------");
+
+team1 < team2 && console.log('Team 1 có nhiều khả năng chiến thắng hơn');
+team2 < team1 && console.log('Team 2 có nhiều khả năng chiến thắng hơn');
 
