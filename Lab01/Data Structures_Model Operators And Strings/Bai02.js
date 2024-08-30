@@ -60,7 +60,6 @@ const scorers = {};
 const games = game.scored; //[ 'Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels' ]
 
 for(const player of games){
-    // scorers[player]? scorers[player]++ : scorers[player] = 1;
-    scorers[player] = (scorers[player] || 0) + 1;
+    scorers[player]? scorers[player]++ : scorers[player] = 1;
+    // scorers[player] = (scorers[player] || 0) + 1;
 }
-console.log(scorers);
